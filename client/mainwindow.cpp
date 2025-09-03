@@ -30,8 +30,40 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
             [=]() { ui->pushButton_link->setIcon(QIcon(":/icon/link_off.svg")); });
 
     connect(NetworkManager::instance(), &NetworkManager::receivedMessage, this,
-            [](MsgType msgType, const QByteArray &data) {
+            [=](MsgType msgType, const QByteArray &data) {
                 qDebug() << "Received message type:" << msgType << "data:" << QString::fromUtf8(data);
+                if (msgType == HEARTBEAT)
+                {
+                    NetworkManager::instance()->sendMessage(MsgType::HEARTBEAT, QString("pong"));
+                }
+                else if (msgType == LOGIN_RESPONSE)
+                {
+                    qDebug()<<"aaa\n";
+                    msg::LoginResponse loginRsp;
+                    loginRsp.ParseFromArray(data.constData(), data.size());
+
+                    if (loginRsp.state() == msg::LoginResponse::StateCode::LoginResponse_StateCode_SUCCESS)
+                    {
+                        QMessageBox::information(this, "Info", "登录成功");
+                        // 这里可以执行登录成功后的逻辑，比如跳转界面
+                    }
+                    else if (loginRsp.state() == msg::LoginResponse::StateCode::LoginResponse_StateCode_USER_NOT_FOUND)
+                    {
+                        QMessageBox::warning(this, "Warning", "用户不存在");
+                        // 可以清空用户名输入框或提示重新输入
+                    }
+                    else if (loginRsp.state() ==
+                             msg::LoginResponse::StateCode::LoginResponse_StateCode_INVALID_CREDENTIALS)
+                    {
+                        QMessageBox::critical(this, "Error", "用户名或密码错误");
+                        // 可以清空密码输入框
+                    }
+                    else
+                    {
+                        QMessageBox::information(this, "Info", "未知错误");
+                        // 处理其他未定义状态
+                    }
+                }
             });
 
     connect(ui->pushButton_link, &QPushButton::clicked, this, [=]() {
@@ -65,13 +97,10 @@ void MainWindow::loginButtonClicked()
     QString password = ui->lineEdit_password->text();
     if (password.size() == 0) QMessageBox::critical(this, "Error", "Password cannot be empty");
 
-    QByteArray hashed    = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    QString    hashedStr = QString(hashed.toHex());
-
     // Construct protobuf
     msg::LoginRequest loginReq;
     loginReq.set_username(username.toStdString());
-    loginReq.set_password(hashedStr.toStdString());
+    loginReq.set_password(password.toStdString());
 
     // Serialize protobuf to QByteArray
     std::string serialized;

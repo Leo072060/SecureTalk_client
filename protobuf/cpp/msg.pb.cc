@@ -46,8 +46,20 @@ struct LoginResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LoginResponseDefaultTypeInternal _LoginResponse_default_instance_;
+constexpr InvalidMessageError::InvalidMessageError(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : header_(nullptr){}
+struct InvalidMessageErrorDefaultTypeInternal {
+  constexpr InvalidMessageErrorDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~InvalidMessageErrorDefaultTypeInternal() {}
+  union {
+    InvalidMessageError _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT InvalidMessageErrorDefaultTypeInternal _InvalidMessageError_default_instance_;
 }  // namespace msg
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_msg_2eproto[2];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_msg_2eproto[3];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_msg_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_msg_2eproto = nullptr;
 
@@ -68,15 +80,23 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_msg_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::msg::LoginResponse, header_),
   PROTOBUF_FIELD_OFFSET(::msg::LoginResponse, state_),
   PROTOBUF_FIELD_OFFSET(::msg::LoginResponse, session_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::msg::InvalidMessageError, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::msg::InvalidMessageError, header_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::msg::LoginRequest)},
   { 8, -1, sizeof(::msg::LoginResponse)},
+  { 16, -1, sizeof(::msg::InvalidMessageError)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::msg::_LoginRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::msg::_LoginResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::msg::_InvalidMessageError_default_instance_),
 };
 
 const char descriptor_table_protodef_msg_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -88,15 +108,17 @@ const char descriptor_table_protodef_msg_2eproto[] PROTOBUF_SECTION_VARIABLE(pro
   "ate\030\002 \001(\0162\034.msg.LoginResponse.StateCode\022"
   "\022\n\nsession_id\030\003 \001(\t\"E\n\tStateCode\022\013\n\007SUCC"
   "ESS\020\000\022\027\n\023INVALID_CREDENTIALS\020\001\022\022\n\016USER_N"
-  "OT_FOUND\020\002b\006proto3"
+  "OT_FOUND\020\002\"B\n\023InvalidMessageError\022+\n\006hea"
+  "der\030\001 \001(\0132\033.msg_header.ServerMsgHeaderb\006"
+  "proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_msg_2eproto_deps[1] = {
   &::descriptor_table_msg_5fheader_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_msg_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_2eproto = {
-  false, false, 338, descriptor_table_protodef_msg_2eproto, "msg.proto", 
-  &descriptor_table_msg_2eproto_once, descriptor_table_msg_2eproto_deps, 1, 2,
+  false, false, 406, descriptor_table_protodef_msg_2eproto, "msg.proto", 
+  &descriptor_table_msg_2eproto_once, descriptor_table_msg_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_msg_2eproto::offsets,
   file_level_metadata_msg_2eproto, file_level_enum_descriptors_msg_2eproto, file_level_service_descriptors_msg_2eproto,
 };
@@ -701,6 +723,216 @@ void LoginResponse::InternalSwap(LoginResponse* other) {
 }
 
 
+// ===================================================================
+
+class InvalidMessageError::_Internal {
+ public:
+  static const ::msg_header::ServerMsgHeader& header(const InvalidMessageError* msg);
+};
+
+const ::msg_header::ServerMsgHeader&
+InvalidMessageError::_Internal::header(const InvalidMessageError* msg) {
+  return *msg->header_;
+}
+void InvalidMessageError::clear_header() {
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+}
+InvalidMessageError::InvalidMessageError(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:msg.InvalidMessageError)
+}
+InvalidMessageError::InvalidMessageError(const InvalidMessageError& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    header_ = new ::msg_header::ServerMsgHeader(*from.header_);
+  } else {
+    header_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:msg.InvalidMessageError)
+}
+
+void InvalidMessageError::SharedCtor() {
+header_ = nullptr;
+}
+
+InvalidMessageError::~InvalidMessageError() {
+  // @@protoc_insertion_point(destructor:msg.InvalidMessageError)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void InvalidMessageError::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete header_;
+}
+
+void InvalidMessageError::ArenaDtor(void* object) {
+  InvalidMessageError* _this = reinterpret_cast< InvalidMessageError* >(object);
+  (void)_this;
+}
+void InvalidMessageError::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void InvalidMessageError::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void InvalidMessageError::Clear() {
+// @@protoc_insertion_point(message_clear_start:msg.InvalidMessageError)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArena() == nullptr && header_ != nullptr) {
+    delete header_;
+  }
+  header_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* InvalidMessageError::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // .msg_header.ServerMsgHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* InvalidMessageError::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:msg.InvalidMessageError)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .msg_header.ServerMsgHeader header = 1;
+  if (this->has_header()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:msg.InvalidMessageError)
+  return target;
+}
+
+size_t InvalidMessageError::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:msg.InvalidMessageError)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .msg_header.ServerMsgHeader header = 1;
+  if (this->has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *header_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void InvalidMessageError::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:msg.InvalidMessageError)
+  GOOGLE_DCHECK_NE(&from, this);
+  const InvalidMessageError* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InvalidMessageError>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:msg.InvalidMessageError)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:msg.InvalidMessageError)
+    MergeFrom(*source);
+  }
+}
+
+void InvalidMessageError::MergeFrom(const InvalidMessageError& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:msg.InvalidMessageError)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_header()) {
+    _internal_mutable_header()->::msg_header::ServerMsgHeader::MergeFrom(from._internal_header());
+  }
+}
+
+void InvalidMessageError::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:msg.InvalidMessageError)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void InvalidMessageError::CopyFrom(const InvalidMessageError& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:msg.InvalidMessageError)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool InvalidMessageError::IsInitialized() const {
+  return true;
+}
+
+void InvalidMessageError::InternalSwap(InvalidMessageError* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(header_, other->header_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata InvalidMessageError::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace msg
 PROTOBUF_NAMESPACE_OPEN
@@ -709,6 +941,9 @@ template<> PROTOBUF_NOINLINE ::msg::LoginRequest* Arena::CreateMaybeMessage< ::m
 }
 template<> PROTOBUF_NOINLINE ::msg::LoginResponse* Arena::CreateMaybeMessage< ::msg::LoginResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::msg::LoginResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::msg::InvalidMessageError* Arena::CreateMaybeMessage< ::msg::InvalidMessageError >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::msg::InvalidMessageError >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

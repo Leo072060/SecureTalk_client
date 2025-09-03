@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -72,6 +73,35 @@ template<> ::msg_header::ServerMsgHeader* Arena::CreateMaybeMessage<::msg_header
 PROTOBUF_NAMESPACE_CLOSE
 namespace msg_header {
 
+enum ClientMsgHeader_Platform : int {
+  ClientMsgHeader_Platform_UNKNOWN = 0,
+  ClientMsgHeader_Platform_WINDOWS = 1,
+  ClientMsgHeader_Platform_LINUX = 2,
+  ClientMsgHeader_Platform_MAC = 3,
+  ClientMsgHeader_Platform_ANDROID = 4,
+  ClientMsgHeader_Platform_IOS = 5,
+  ClientMsgHeader_Platform_ClientMsgHeader_Platform_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ClientMsgHeader_Platform_ClientMsgHeader_Platform_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ClientMsgHeader_Platform_IsValid(int value);
+constexpr ClientMsgHeader_Platform ClientMsgHeader_Platform_Platform_MIN = ClientMsgHeader_Platform_UNKNOWN;
+constexpr ClientMsgHeader_Platform ClientMsgHeader_Platform_Platform_MAX = ClientMsgHeader_Platform_IOS;
+constexpr int ClientMsgHeader_Platform_Platform_ARRAYSIZE = ClientMsgHeader_Platform_Platform_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ClientMsgHeader_Platform_descriptor();
+template<typename T>
+inline const std::string& ClientMsgHeader_Platform_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ClientMsgHeader_Platform>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ClientMsgHeader_Platform_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ClientMsgHeader_Platform_descriptor(), enum_t_value);
+}
+inline bool ClientMsgHeader_Platform_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ClientMsgHeader_Platform* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ClientMsgHeader_Platform>(
+    ClientMsgHeader_Platform_descriptor(), name, value);
+}
 // ===================================================================
 
 class IPAddress PROTOBUF_FINAL :
@@ -339,14 +369,51 @@ class ClientMsgHeader PROTOBUF_FINAL :
 
   // nested types ----------------------------------------------------
 
+  typedef ClientMsgHeader_Platform Platform;
+  static constexpr Platform UNKNOWN =
+    ClientMsgHeader_Platform_UNKNOWN;
+  static constexpr Platform WINDOWS =
+    ClientMsgHeader_Platform_WINDOWS;
+  static constexpr Platform LINUX =
+    ClientMsgHeader_Platform_LINUX;
+  static constexpr Platform MAC =
+    ClientMsgHeader_Platform_MAC;
+  static constexpr Platform ANDROID =
+    ClientMsgHeader_Platform_ANDROID;
+  static constexpr Platform IOS =
+    ClientMsgHeader_Platform_IOS;
+  static inline bool Platform_IsValid(int value) {
+    return ClientMsgHeader_Platform_IsValid(value);
+  }
+  static constexpr Platform Platform_MIN =
+    ClientMsgHeader_Platform_Platform_MIN;
+  static constexpr Platform Platform_MAX =
+    ClientMsgHeader_Platform_Platform_MAX;
+  static constexpr int Platform_ARRAYSIZE =
+    ClientMsgHeader_Platform_Platform_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Platform_descriptor() {
+    return ClientMsgHeader_Platform_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Platform_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Platform>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Platform_Name.");
+    return ClientMsgHeader_Platform_Name(enum_t_value);
+  }
+  static inline bool Platform_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Platform* value) {
+    return ClientMsgHeader_Platform_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kSessionIdFieldNumber = 3,
-    kPlatformFieldNumber = 5,
     kIpAddressFieldNumber = 6,
-    kMsgTypeFieldNumber = 1,
     kUserIdFieldNumber = 2,
+    kPlatformFieldNumber = 5,
     kTimestampFieldNumber = 4,
   };
   // string session_id = 3;
@@ -363,22 +430,6 @@ class ClientMsgHeader PROTOBUF_FINAL :
   const std::string& _internal_session_id() const;
   void _internal_set_session_id(const std::string& value);
   std::string* _internal_mutable_session_id();
-  public:
-
-  // string platform = 5;
-  void clear_platform();
-  const std::string& platform() const;
-  void set_platform(const std::string& value);
-  void set_platform(std::string&& value);
-  void set_platform(const char* value);
-  void set_platform(const char* value, size_t size);
-  std::string* mutable_platform();
-  std::string* release_platform();
-  void set_allocated_platform(std::string* platform);
-  private:
-  const std::string& _internal_platform() const;
-  void _internal_set_platform(const std::string& value);
-  std::string* _internal_mutable_platform();
   public:
 
   // .msg_header.IPAddress ip_address = 6;
@@ -399,15 +450,6 @@ class ClientMsgHeader PROTOBUF_FINAL :
       ::msg_header::IPAddress* ip_address);
   ::msg_header::IPAddress* unsafe_arena_release_ip_address();
 
-  // int32 msg_type = 1;
-  void clear_msg_type();
-  ::PROTOBUF_NAMESPACE_ID::int32 msg_type() const;
-  void set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_msg_type() const;
-  void _internal_set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // int32 user_id = 2;
   void clear_user_id();
   ::PROTOBUF_NAMESPACE_ID::int32 user_id() const;
@@ -415,6 +457,15 @@ class ClientMsgHeader PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_user_id() const;
   void _internal_set_user_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // .msg_header.ClientMsgHeader.Platform platform = 5;
+  void clear_platform();
+  ::msg_header::ClientMsgHeader_Platform platform() const;
+  void set_platform(::msg_header::ClientMsgHeader_Platform value);
+  private:
+  ::msg_header::ClientMsgHeader_Platform _internal_platform() const;
+  void _internal_set_platform(::msg_header::ClientMsgHeader_Platform value);
   public:
 
   // int64 timestamp = 4;
@@ -434,10 +485,9 @@ class ClientMsgHeader PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr session_id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr platform_;
   ::msg_header::IPAddress* ip_address_;
-  ::PROTOBUF_NAMESPACE_ID::int32 msg_type_;
   ::PROTOBUF_NAMESPACE_ID::int32 user_id_;
+  int platform_;
   ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_msg_5fheader_2eproto;
@@ -557,18 +607,8 @@ class ServerMsgHeader PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMsgTypeFieldNumber = 1,
     kTimestampFieldNumber = 4,
   };
-  // int32 msg_type = 1;
-  void clear_msg_type();
-  ::PROTOBUF_NAMESPACE_ID::int32 msg_type() const;
-  void set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_msg_type() const;
-  void _internal_set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // int64 timestamp = 4;
   void clear_timestamp();
   ::PROTOBUF_NAMESPACE_ID::int64 timestamp() const;
@@ -585,7 +625,6 @@ class ServerMsgHeader PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 msg_type_;
   ::PROTOBUF_NAMESPACE_ID::int64 timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_msg_5fheader_2eproto;
@@ -685,26 +724,6 @@ inline void IPAddress::set_port(::PROTOBUF_NAMESPACE_ID::int32 value) {
 // -------------------------------------------------------------------
 
 // ClientMsgHeader
-
-// int32 msg_type = 1;
-inline void ClientMsgHeader::clear_msg_type() {
-  msg_type_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ClientMsgHeader::_internal_msg_type() const {
-  return msg_type_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ClientMsgHeader::msg_type() const {
-  // @@protoc_insertion_point(field_get:msg_header.ClientMsgHeader.msg_type)
-  return _internal_msg_type();
-}
-inline void ClientMsgHeader::_internal_set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  msg_type_ = value;
-}
-inline void ClientMsgHeader::set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_msg_type(value);
-  // @@protoc_insertion_point(field_set:msg_header.ClientMsgHeader.msg_type)
-}
 
 // int32 user_id = 2;
 inline void ClientMsgHeader::clear_user_id() {
@@ -807,65 +826,24 @@ inline void ClientMsgHeader::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value)
   // @@protoc_insertion_point(field_set:msg_header.ClientMsgHeader.timestamp)
 }
 
-// string platform = 5;
+// .msg_header.ClientMsgHeader.Platform platform = 5;
 inline void ClientMsgHeader::clear_platform() {
-  platform_.ClearToEmpty();
+  platform_ = 0;
 }
-inline const std::string& ClientMsgHeader::platform() const {
+inline ::msg_header::ClientMsgHeader_Platform ClientMsgHeader::_internal_platform() const {
+  return static_cast< ::msg_header::ClientMsgHeader_Platform >(platform_);
+}
+inline ::msg_header::ClientMsgHeader_Platform ClientMsgHeader::platform() const {
   // @@protoc_insertion_point(field_get:msg_header.ClientMsgHeader.platform)
   return _internal_platform();
 }
-inline void ClientMsgHeader::set_platform(const std::string& value) {
+inline void ClientMsgHeader::_internal_set_platform(::msg_header::ClientMsgHeader_Platform value) {
+  
+  platform_ = value;
+}
+inline void ClientMsgHeader::set_platform(::msg_header::ClientMsgHeader_Platform value) {
   _internal_set_platform(value);
   // @@protoc_insertion_point(field_set:msg_header.ClientMsgHeader.platform)
-}
-inline std::string* ClientMsgHeader::mutable_platform() {
-  // @@protoc_insertion_point(field_mutable:msg_header.ClientMsgHeader.platform)
-  return _internal_mutable_platform();
-}
-inline const std::string& ClientMsgHeader::_internal_platform() const {
-  return platform_.Get();
-}
-inline void ClientMsgHeader::_internal_set_platform(const std::string& value) {
-  
-  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void ClientMsgHeader::set_platform(std::string&& value) {
-  
-  platform_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:msg_header.ClientMsgHeader.platform)
-}
-inline void ClientMsgHeader::set_platform(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:msg_header.ClientMsgHeader.platform)
-}
-inline void ClientMsgHeader::set_platform(const char* value,
-    size_t size) {
-  
-  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:msg_header.ClientMsgHeader.platform)
-}
-inline std::string* ClientMsgHeader::_internal_mutable_platform() {
-  
-  return platform_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* ClientMsgHeader::release_platform() {
-  // @@protoc_insertion_point(field_release:msg_header.ClientMsgHeader.platform)
-  return platform_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ClientMsgHeader::set_allocated_platform(std::string* platform) {
-  if (platform != nullptr) {
-    
-  } else {
-    
-  }
-  platform_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), platform,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:msg_header.ClientMsgHeader.platform)
 }
 
 // .msg_header.IPAddress ip_address = 6;
@@ -955,26 +933,6 @@ inline void ClientMsgHeader::set_allocated_ip_address(::msg_header::IPAddress* i
 
 // ServerMsgHeader
 
-// int32 msg_type = 1;
-inline void ServerMsgHeader::clear_msg_type() {
-  msg_type_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ServerMsgHeader::_internal_msg_type() const {
-  return msg_type_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 ServerMsgHeader::msg_type() const {
-  // @@protoc_insertion_point(field_get:msg_header.ServerMsgHeader.msg_type)
-  return _internal_msg_type();
-}
-inline void ServerMsgHeader::_internal_set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  msg_type_ = value;
-}
-inline void ServerMsgHeader::set_msg_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_msg_type(value);
-  // @@protoc_insertion_point(field_set:msg_header.ServerMsgHeader.msg_type)
-}
-
 // int64 timestamp = 4;
 inline void ServerMsgHeader::clear_timestamp() {
   timestamp_ = PROTOBUF_LONGLONG(0);
@@ -1006,6 +964,16 @@ inline void ServerMsgHeader::set_timestamp(::PROTOBUF_NAMESPACE_ID::int64 value)
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace msg_header
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::msg_header::ClientMsgHeader_Platform> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::msg_header::ClientMsgHeader_Platform>() {
+  return ::msg_header::ClientMsgHeader_Platform_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

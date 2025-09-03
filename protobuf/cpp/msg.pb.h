@@ -48,7 +48,7 @@ struct TableStruct_msg_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -57,6 +57,9 @@ struct TableStruct_msg_2eproto {
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_2eproto;
 ::PROTOBUF_NAMESPACE_ID::Metadata descriptor_table_msg_2eproto_metadata_getter(int index);
 namespace msg {
+class InvalidMessageError;
+struct InvalidMessageErrorDefaultTypeInternal;
+extern InvalidMessageErrorDefaultTypeInternal _InvalidMessageError_default_instance_;
 class LoginRequest;
 struct LoginRequestDefaultTypeInternal;
 extern LoginRequestDefaultTypeInternal _LoginRequest_default_instance_;
@@ -65,6 +68,7 @@ struct LoginResponseDefaultTypeInternal;
 extern LoginResponseDefaultTypeInternal _LoginResponse_default_instance_;
 }  // namespace msg
 PROTOBUF_NAMESPACE_OPEN
+template<> ::msg::InvalidMessageError* Arena::CreateMaybeMessage<::msg::InvalidMessageError>(Arena*);
 template<> ::msg::LoginRequest* Arena::CreateMaybeMessage<::msg::LoginRequest>(Arena*);
 template<> ::msg::LoginResponse* Arena::CreateMaybeMessage<::msg::LoginResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -485,6 +489,152 @@ class LoginResponse PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_msg_2eproto;
 };
+// -------------------------------------------------------------------
+
+class InvalidMessageError PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:msg.InvalidMessageError) */ {
+ public:
+  inline InvalidMessageError() : InvalidMessageError(nullptr) {}
+  virtual ~InvalidMessageError();
+  explicit constexpr InvalidMessageError(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  InvalidMessageError(const InvalidMessageError& from);
+  InvalidMessageError(InvalidMessageError&& from) noexcept
+    : InvalidMessageError() {
+    *this = ::std::move(from);
+  }
+
+  inline InvalidMessageError& operator=(const InvalidMessageError& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline InvalidMessageError& operator=(InvalidMessageError&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const InvalidMessageError& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const InvalidMessageError* internal_default_instance() {
+    return reinterpret_cast<const InvalidMessageError*>(
+               &_InvalidMessageError_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(InvalidMessageError& a, InvalidMessageError& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(InvalidMessageError* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(InvalidMessageError* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline InvalidMessageError* New() const final {
+    return CreateMaybeMessage<InvalidMessageError>(nullptr);
+  }
+
+  InvalidMessageError* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<InvalidMessageError>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const InvalidMessageError& from);
+  void MergeFrom(const InvalidMessageError& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InvalidMessageError* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "msg.InvalidMessageError";
+  }
+  protected:
+  explicit InvalidMessageError(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_msg_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+  };
+  // .msg_header.ServerMsgHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::msg_header::ServerMsgHeader& header() const;
+  ::msg_header::ServerMsgHeader* release_header();
+  ::msg_header::ServerMsgHeader* mutable_header();
+  void set_allocated_header(::msg_header::ServerMsgHeader* header);
+  private:
+  const ::msg_header::ServerMsgHeader& _internal_header() const;
+  ::msg_header::ServerMsgHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::msg_header::ServerMsgHeader* header);
+  ::msg_header::ServerMsgHeader* unsafe_arena_release_header();
+
+  // @@protoc_insertion_point(class_scope:msg.InvalidMessageError)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::msg_header::ServerMsgHeader* header_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_msg_2eproto;
+};
 // ===================================================================
 
 
@@ -857,9 +1007,92 @@ inline void LoginResponse::set_allocated_session_id(std::string* session_id) {
   // @@protoc_insertion_point(field_set_allocated:msg.LoginResponse.session_id)
 }
 
+// -------------------------------------------------------------------
+
+// InvalidMessageError
+
+// .msg_header.ServerMsgHeader header = 1;
+inline bool InvalidMessageError::_internal_has_header() const {
+  return this != internal_default_instance() && header_ != nullptr;
+}
+inline bool InvalidMessageError::has_header() const {
+  return _internal_has_header();
+}
+inline const ::msg_header::ServerMsgHeader& InvalidMessageError::_internal_header() const {
+  const ::msg_header::ServerMsgHeader* p = header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::msg_header::ServerMsgHeader&>(
+      ::msg_header::_ServerMsgHeader_default_instance_);
+}
+inline const ::msg_header::ServerMsgHeader& InvalidMessageError::header() const {
+  // @@protoc_insertion_point(field_get:msg.InvalidMessageError.header)
+  return _internal_header();
+}
+inline void InvalidMessageError::unsafe_arena_set_allocated_header(
+    ::msg_header::ServerMsgHeader* header) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:msg.InvalidMessageError.header)
+}
+inline ::msg_header::ServerMsgHeader* InvalidMessageError::release_header() {
+  
+  ::msg_header::ServerMsgHeader* temp = header_;
+  header_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::msg_header::ServerMsgHeader* InvalidMessageError::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:msg.InvalidMessageError.header)
+  
+  ::msg_header::ServerMsgHeader* temp = header_;
+  header_ = nullptr;
+  return temp;
+}
+inline ::msg_header::ServerMsgHeader* InvalidMessageError::_internal_mutable_header() {
+  
+  if (header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::msg_header::ServerMsgHeader>(GetArena());
+    header_ = p;
+  }
+  return header_;
+}
+inline ::msg_header::ServerMsgHeader* InvalidMessageError::mutable_header() {
+  // @@protoc_insertion_point(field_mutable:msg.InvalidMessageError.header)
+  return _internal_mutable_header();
+}
+inline void InvalidMessageError::set_allocated_header(::msg_header::ServerMsgHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header)->GetArena();
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:msg.InvalidMessageError.header)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

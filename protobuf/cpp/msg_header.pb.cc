@@ -33,10 +33,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT IPAddressDefaultTypeInternal _I
 constexpr ClientMsgHeader::ClientMsgHeader(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : session_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , platform_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , ip_address_(nullptr)
-  , msg_type_(0)
   , user_id_(0)
+  , platform_(0)
+
   , timestamp_(PROTOBUF_LONGLONG(0)){}
 struct ClientMsgHeaderDefaultTypeInternal {
   constexpr ClientMsgHeaderDefaultTypeInternal()
@@ -49,8 +49,7 @@ struct ClientMsgHeaderDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ClientMsgHeaderDefaultTypeInternal _ClientMsgHeader_default_instance_;
 constexpr ServerMsgHeader::ServerMsgHeader(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : msg_type_(0)
-  , timestamp_(PROTOBUF_LONGLONG(0)){}
+  : timestamp_(PROTOBUF_LONGLONG(0)){}
 struct ServerMsgHeaderDefaultTypeInternal {
   constexpr ServerMsgHeaderDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -62,7 +61,7 @@ struct ServerMsgHeaderDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ServerMsgHeaderDefaultTypeInternal _ServerMsgHeader_default_instance_;
 }  // namespace msg_header
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_msg_5fheader_2eproto[3];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_msg_5fheader_2eproto = nullptr;
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_msg_5fheader_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_msg_5fheader_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_msg_5fheader_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -78,7 +77,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_msg_5fheader_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::msg_header::ClientMsgHeader, msg_type_),
   PROTOBUF_FIELD_OFFSET(::msg_header::ClientMsgHeader, user_id_),
   PROTOBUF_FIELD_OFFSET(::msg_header::ClientMsgHeader, session_id_),
   PROTOBUF_FIELD_OFFSET(::msg_header::ClientMsgHeader, timestamp_),
@@ -89,13 +87,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_msg_5fheader_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::msg_header::ServerMsgHeader, msg_type_),
   PROTOBUF_FIELD_OFFSET(::msg_header::ServerMsgHeader, timestamp_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::msg_header::IPAddress)},
   { 7, -1, sizeof(::msg_header::ClientMsgHeader)},
-  { 18, -1, sizeof(::msg_header::ServerMsgHeader)},
+  { 17, -1, sizeof(::msg_header::ServerMsgHeader)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -106,17 +103,19 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_msg_5fheader_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020msg_header.proto\022\nmsg_header\"%\n\tIPAddr"
-  "ess\022\n\n\002ip\030\001 \001(\t\022\014\n\004port\030\002 \001(\005\"\230\001\n\017Client"
-  "MsgHeader\022\020\n\010msg_type\030\001 \001(\005\022\017\n\007user_id\030\002"
-  " \001(\005\022\022\n\nsession_id\030\003 \001(\t\022\021\n\ttimestamp\030\004 "
-  "\001(\003\022\020\n\010platform\030\005 \001(\t\022)\n\nip_address\030\006 \001("
-  "\0132\025.msg_header.IPAddress\"6\n\017ServerMsgHea"
-  "der\022\020\n\010msg_type\030\001 \001(\005\022\021\n\ttimestamp\030\004 \001(\003"
-  "b\006proto3"
+  "ess\022\n\n\002ip\030\001 \001(\t\022\014\n\004port\030\002 \001(\005\"\374\001\n\017Client"
+  "MsgHeader\022\017\n\007user_id\030\002 \001(\005\022\022\n\nsession_id"
+  "\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\003\0226\n\010platform\030\005 "
+  "\001(\0162$.msg_header.ClientMsgHeader.Platfor"
+  "m\022)\n\nip_address\030\006 \001(\0132\025.msg_header.IPAdd"
+  "ress\"N\n\010Platform\022\013\n\007UNKNOWN\020\000\022\013\n\007WINDOWS"
+  "\020\001\022\t\n\005LINUX\020\002\022\007\n\003MAC\020\003\022\013\n\007ANDROID\020\004\022\007\n\003I"
+  "OS\020\005\"$\n\017ServerMsgHeader\022\021\n\ttimestamp\030\004 \001"
+  "(\003b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_msg_5fheader_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_5fheader_2eproto = {
-  false, false, 288, descriptor_table_protodef_msg_5fheader_2eproto, "msg_header.proto", 
+  false, false, 370, descriptor_table_protodef_msg_5fheader_2eproto, "msg_header.proto", 
   &descriptor_table_msg_5fheader_2eproto_once, nullptr, 0, 3,
   schemas, file_default_instances, TableStruct_msg_5fheader_2eproto::offsets,
   file_level_metadata_msg_5fheader_2eproto, file_level_enum_descriptors_msg_5fheader_2eproto, file_level_service_descriptors_msg_5fheader_2eproto,
@@ -130,6 +129,35 @@ descriptor_table_msg_5fheader_2eproto_metadata_getter(int index) {
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_msg_5fheader_2eproto(&descriptor_table_msg_5fheader_2eproto);
 namespace msg_header {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ClientMsgHeader_Platform_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_msg_5fheader_2eproto);
+  return file_level_enum_descriptors_msg_5fheader_2eproto[0];
+}
+bool ClientMsgHeader_Platform_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr ClientMsgHeader_Platform ClientMsgHeader::UNKNOWN;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::WINDOWS;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::LINUX;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::MAC;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::ANDROID;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::IOS;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::Platform_MIN;
+constexpr ClientMsgHeader_Platform ClientMsgHeader::Platform_MAX;
+constexpr int ClientMsgHeader::Platform_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
@@ -383,25 +411,19 @@ ClientMsgHeader::ClientMsgHeader(const ClientMsgHeader& from)
     session_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_session_id(), 
       GetArena());
   }
-  platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_platform().empty()) {
-    platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_platform(), 
-      GetArena());
-  }
   if (from._internal_has_ip_address()) {
     ip_address_ = new ::msg_header::IPAddress(*from.ip_address_);
   } else {
     ip_address_ = nullptr;
   }
-  ::memcpy(&msg_type_, &from.msg_type_,
+  ::memcpy(&user_id_, &from.user_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
-    reinterpret_cast<char*>(&msg_type_)) + sizeof(timestamp_));
+    reinterpret_cast<char*>(&user_id_)) + sizeof(timestamp_));
   // @@protoc_insertion_point(copy_constructor:msg_header.ClientMsgHeader)
 }
 
 void ClientMsgHeader::SharedCtor() {
 session_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&ip_address_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
@@ -417,7 +439,6 @@ ClientMsgHeader::~ClientMsgHeader() {
 void ClientMsgHeader::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   session_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  platform_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete ip_address_;
 }
 
@@ -438,14 +459,13 @@ void ClientMsgHeader::Clear() {
   (void) cached_has_bits;
 
   session_id_.ClearToEmpty();
-  platform_.ClearToEmpty();
   if (GetArena() == nullptr && ip_address_ != nullptr) {
     delete ip_address_;
   }
   ip_address_ = nullptr;
-  ::memset(&msg_type_, 0, static_cast<size_t>(
+  ::memset(&user_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&timestamp_) -
-      reinterpret_cast<char*>(&msg_type_)) + sizeof(timestamp_));
+      reinterpret_cast<char*>(&user_id_)) + sizeof(timestamp_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -456,13 +476,6 @@ const char* ClientMsgHeader::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // int32 msg_type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          msg_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // int32 user_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
@@ -486,13 +499,12 @@ const char* ClientMsgHeader::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string platform = 5;
+      // .msg_header.ClientMsgHeader.Platform platform = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          auto str = _internal_mutable_platform();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "msg_header.ClientMsgHeader.platform"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+          _internal_set_platform(static_cast<::msg_header::ClientMsgHeader_Platform>(val));
         } else goto handle_unusual;
         continue;
       // .msg_header.IPAddress ip_address = 6;
@@ -530,12 +542,6 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 msg_type = 1;
-  if (this->msg_type() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_msg_type(), target);
-  }
-
   // int32 user_id = 2;
   if (this->user_id() != 0) {
     target = stream->EnsureSpace(target);
@@ -558,14 +564,11 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_timestamp(), target);
   }
 
-  // string platform = 5;
-  if (this->platform().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_platform().data(), static_cast<int>(this->_internal_platform().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "msg_header.ClientMsgHeader.platform");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_platform(), target);
+  // .msg_header.ClientMsgHeader.Platform platform = 5;
+  if (this->platform() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_platform(), target);
   }
 
   // .msg_header.IPAddress ip_address = 6;
@@ -599,13 +602,6 @@ size_t ClientMsgHeader::ByteSizeLong() const {
         this->_internal_session_id());
   }
 
-  // string platform = 5;
-  if (this->platform().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_platform());
-  }
-
   // .msg_header.IPAddress ip_address = 6;
   if (this->has_ip_address()) {
     total_size += 1 +
@@ -613,18 +609,17 @@ size_t ClientMsgHeader::ByteSizeLong() const {
         *ip_address_);
   }
 
-  // int32 msg_type = 1;
-  if (this->msg_type() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_msg_type());
-  }
-
   // int32 user_id = 2;
   if (this->user_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_user_id());
+  }
+
+  // .msg_header.ClientMsgHeader.Platform platform = 5;
+  if (this->platform() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platform());
   }
 
   // int64 timestamp = 4;
@@ -668,17 +663,14 @@ void ClientMsgHeader::MergeFrom(const ClientMsgHeader& from) {
   if (from.session_id().size() > 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.platform().size() > 0) {
-    _internal_set_platform(from._internal_platform());
-  }
   if (from.has_ip_address()) {
     _internal_mutable_ip_address()->::msg_header::IPAddress::MergeFrom(from._internal_ip_address());
   }
-  if (from.msg_type() != 0) {
-    _internal_set_msg_type(from._internal_msg_type());
-  }
   if (from.user_id() != 0) {
     _internal_set_user_id(from._internal_user_id());
+  }
+  if (from.platform() != 0) {
+    _internal_set_platform(from._internal_platform());
   }
   if (from.timestamp() != 0) {
     _internal_set_timestamp(from._internal_timestamp());
@@ -707,7 +699,6 @@ void ClientMsgHeader::InternalSwap(ClientMsgHeader* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   session_id_.Swap(&other->session_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  platform_.Swap(&other->platform_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ClientMsgHeader, timestamp_)
       + sizeof(ClientMsgHeader::timestamp_)
@@ -736,17 +727,12 @@ ServerMsgHeader::ServerMsgHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 ServerMsgHeader::ServerMsgHeader(const ServerMsgHeader& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&msg_type_, &from.msg_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
-    reinterpret_cast<char*>(&msg_type_)) + sizeof(timestamp_));
+  timestamp_ = from.timestamp_;
   // @@protoc_insertion_point(copy_constructor:msg_header.ServerMsgHeader)
 }
 
 void ServerMsgHeader::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&msg_type_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&timestamp_) -
-    reinterpret_cast<char*>(&msg_type_)) + sizeof(timestamp_));
+timestamp_ = PROTOBUF_LONGLONG(0);
 }
 
 ServerMsgHeader::~ServerMsgHeader() {
@@ -775,9 +761,7 @@ void ServerMsgHeader::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&msg_type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&timestamp_) -
-      reinterpret_cast<char*>(&msg_type_)) + sizeof(timestamp_));
+  timestamp_ = PROTOBUF_LONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -788,13 +772,6 @@ const char* ServerMsgHeader::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // int32 msg_type = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          msg_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
       // int64 timestamp = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
@@ -830,12 +807,6 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 msg_type = 1;
-  if (this->msg_type() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_msg_type(), target);
-  }
-
   // int64 timestamp = 4;
   if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
@@ -857,13 +828,6 @@ size_t ServerMsgHeader::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // int32 msg_type = 1;
-  if (this->msg_type() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_msg_type());
-  }
 
   // int64 timestamp = 4;
   if (this->timestamp() != 0) {
@@ -903,9 +867,6 @@ void ServerMsgHeader::MergeFrom(const ServerMsgHeader& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.msg_type() != 0) {
-    _internal_set_msg_type(from._internal_msg_type());
-  }
   if (from.timestamp() != 0) {
     _internal_set_timestamp(from._internal_timestamp());
   }
@@ -932,12 +893,7 @@ bool ServerMsgHeader::IsInitialized() const {
 void ServerMsgHeader::InternalSwap(ServerMsgHeader* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ServerMsgHeader, timestamp_)
-      + sizeof(ServerMsgHeader::timestamp_)
-      - PROTOBUF_FIELD_OFFSET(ServerMsgHeader, msg_type_)>(
-          reinterpret_cast<char*>(&msg_type_),
-          reinterpret_cast<char*>(&other->msg_type_));
+  swap(timestamp_, other->timestamp_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerMsgHeader::GetMetadata() const {

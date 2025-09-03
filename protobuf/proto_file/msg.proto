@@ -24,3 +24,8 @@ message LoginResponse
         USER_NOT_FOUND = 2;
     }
 }
+
+message InvalidMessageError
+{
+    msg_header.ServerMsgHeader header = 1;
+}
