@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/settings.svg</file>
+        <file>icon/disconnected.svg</file>
+        <file>icon/link.svg</file>
+        <file>icon/link_off.svg</file>
+        <file>icon/network_check.svg</file>
+        <file>icon/contact_support.svg</file>
+        <file>icon/help.svg</file>
+        <file>icon/account.svg</file>
+        <file>icon/SecureTalk.png</file>
+    </qresource>
+</RCC>

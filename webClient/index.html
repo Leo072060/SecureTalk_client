@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>在线用户列表</title>
+<style>
+    /* 全局布局 */
+    body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        background: url('https://images.unsplash.com/photo-1587614382346-4ec41e31f71e?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+        background-size: cover;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+        color: #333;
+    }
+
+    body.dark {
+        background: #111;
+        color: #eee;
+    }
+
+    /* 左侧在线用户栏 */
+    .sidebar {
+        width: 250px;
+        background: rgba(255,255,255,0.3);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 20px;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    body.dark .sidebar {
+        background: rgba(30,30,30,0.5);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.6);
+    }
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #user-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+        flex-grow: 1;
+    }
+
+    #user-list li {
+        display: flex;
+        align-items: center;
+        background: rgba(255,255,255,0.25);
+        border-radius: 12px;
+        padding: 10px;
+        margin-bottom: 10px;
+        color: #000;
+        backdrop-filter: blur(5px);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark #user-list li {
+        background: rgba(255,255,255,0.1);
+        color: #eee;
+    }
+
+    .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 10px;
+        background: #0f0; /* 在线绿色 */
+    }
+
+    /* 主题切换按钮 */
+    .theme-toggle {
+        margin-top: auto;
+        padding: 8px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        background: rgba(255,255,255,0.4);
+        transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark .theme-toggle {
+        background: rgba(255,255,255,0.2);
+        color: #eee;
+    }
+
+    .theme-toggle:hover {
+        background: rgba(255,255,255,0.6);
+    }
+
+</style>
+</head>
+<body class="light">
+
+<div class="sidebar">
+    <h2>在线用户</h2>
+    <ul id="user-list">
+        <!-- 模拟在线用户 -->
+        <li><span class="status-dot"></span>Alice</li>
+        <li><span class="status-dot"></span>Bob</li>
+        <li><span class="status-dot"></span>Charlie</li>
+    </ul>
+    <button class="theme-toggle" id="toggle-theme">切换主题</button>
+</div>
+
+<script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+        if(body.classList.contains('light')){
+            body.classList.remove('light');
+            body.classList.add('dark');
+        } else {
+            body.classList.remove('dark');
+            body.classList.add('light');
+        }
+    });
+
+    // WebSocket 可以替换模拟数据，动态更新用户列表
+    /*
+    const userList = document.getElementById('user-list');
+    const ws = new WebSocket('wss://yourserver.com/ws');
+    ws.onmessage = (event) => {
+        const users = JSON.parse(event.data);
+        userList.innerHTML = users.map(u => `<li><span class="status-dot"></span>${u.name}</li>`).join('');
+    };
+    */
+</script>
+</body>
+</html>

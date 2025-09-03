@@ -1,0 +1,15 @@
+# ninja log v5
+32	1688	7783543170045369	client_autogen/timestamp	6a22b8ef3f4a2ae4
+32	1688	7783543170045369	C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen/timestamp	6a22b8ef3f4a2ae4
+1690	4631	7783543200464982	CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.obj	d5527033987ad71a
+32	1688	7783543170045369	client_autogen/mocs_compilation.cpp	6a22b8ef3f4a2ae4
+32	1688	7783543170045369	C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen/mocs_compilation.cpp	6a22b8ef3f4a2ae4
+1699	4665	7783543201084792	CMakeFiles/client.dir/mainwindow.cpp.obj	85c20d184551d57c
+1695	4633	7783543200522965	CMakeFiles/client.dir/main.cpp.obj	5b6e118e69c8e2e5
+2103	2290	7783498144009084	client.exe	c356397255c5c30f
+5	898	7783547548355177	build.ninja	df6558844673a4b3
+23	165	7783547539578376	client_autogen/timestamp	6a22b8ef3f4a2ae4
+23	165	7783547539578376	client_autogen/mocs_compilation.cpp	6a22b8ef3f4a2ae4
+23	165	7783547539578376	C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen/timestamp	6a22b8ef3f4a2ae4
+23	165	7783547539578376	C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen/mocs_compilation.cpp	6a22b8ef3f4a2ae4
+174	2064	7783547569786153	CMakeFiles/client.dir/mainwindow.cpp.obj	85c20d184551d57c

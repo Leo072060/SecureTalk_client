@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>748</width>
+    <height>526</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0   rgba(15, 15, 20, 255),
+        stop:0.5 rgba(25, 25, 35, 255),
+        stop:1   rgba(10, 10, 15, 255)
+    );
+	padding: 0px 0px;
+	margin: 0px 0px;
+}
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0" colspan="2">
+     <widget class="InteractiveWidget" name="widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>55</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>55</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* ------------------- 简约暗色圆角按钮（全局 QPushButton） ------------------- */
+QPushButton {
+    background-color: rgba(50, 50, 50, 220);  /* 深灰暗色底 */
+    color: rgba(220, 220, 220, 255);         /* 灰白文字 */
+    border: 1px solid rgba(80, 80, 80, 180); /* 暗色边框 */
+    border-radius: 22px;                       /* 圆角 */
+    padding: 6px 20px;                        /* 内边距 */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 鼠标悬停效果 */
+QPushButton:hover {
+    background-color: rgba(70, 70, 70, 230);
+    border: 1px solid rgba(120, 120, 120, 200);
+}
+
+/* 鼠标按下效果 */
+QPushButton:pressed {
+    background-color: rgba(90, 90, 90, 240);
+    border: 1px solid rgba(150, 150, 150, 220);
+}
+
+/* 禁用状态 */
+QPushButton:disabled {
+    background-color: rgba(40, 40, 40, 180);
+    color: rgba(120, 120, 120, 150);
+    border: 1px solid rgba(40, 40, 40, 120);
+}
+</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButton_link">
+         <property name="minimumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/icon/link_off.svg</normaloff>:/icon/link_off.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>496</width>
+           <height>19</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_settings">
+         <property name="minimumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/icon/settings.svg</normaloff>:/icon/settings.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_help">
+         <property name="minimumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>44</width>
+           <height>44</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="res/res.qrc">
+           <normaloff>:/icon/help.svg</normaloff>:/icon/help.svg</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>25</width>
+           <height>25</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="1">
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>400</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">/* ------------------- 简约暗色圆角按钮（全局 QPushButton） ------------------- */
+QPushButton {
+    background-color: rgba(50, 50, 50, 220);  /* 深灰暗色底 */
+    color: rgba(220, 220, 220, 255);         /* 灰白文字 */
+    border: 1px solid rgba(80, 80, 80, 180); /* 暗色边框 */
+    border-radius: 6px;                       /* 圆角 */
+    padding: 6px 20px;                        /* 内边距 */
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 鼠标悬停效果 */
+QPushButton:hover {
+    background-color: rgba(70, 70, 70, 230);
+    border: 1px solid rgba(120, 120, 120, 200);
+}
+
+/* 鼠标按下效果 */
+QPushButton:pressed {
+    background-color: rgba(90, 90, 90, 240);
+    border: 1px solid rgba(150, 150, 150, 220);
+}
+
+/* 禁用状态 */
+QPushButton:disabled {
+    background-color: rgba(40, 40, 40, 180);
+    color: rgba(120, 120, 120, 150);
+    border: 1px solid rgba(40, 40, 40, 120);
+}
+</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="InteractiveWidget" name="widget_2" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>240</width>
+           <height>350</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>240</width>
+           <height>350</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* 基础外观 */
+QLineEdit {
+    background: #14161A;
+    color: #E6E9EF;
+    border: 1px solid #2A2F3A;
+    border-radius: 8px;
+    padding: 6px 10px;           /* 左右内边距 */
+    min-height: 30px;
+    selection-background-color: #2F6FED;  /* 选中文本底色 */
+    selection-color: #FFFFFF;
+}
+
+/* 占位符颜色（Qt 5.12+ 支持 ::placeholder）*/
+QLineEdit::placeholder {
+    color: #6B7380;
+}
+
+/* 悬停微亮 */
+QLineEdit:hover {
+    border-color: #3A4250;
+}
+
+/* 聚焦高亮（不刺眼）*/
+QLineEdit:focus {
+    border-color: #4C8DFF;
+}
+
+/* 禁用 */
+QLineEdit:disabled {
+    background: #0F1114;
+    color: #6B7380;
+    border-color: #1F242C;
+}
+
+/* 内置清除按钮（Qt 5.2+）*/
+QLineEdit::clear-button {
+    subcontrol-origin: content;
+    subcontrol-position: center right;
+    padding-right: 6px;  /* 与右边距的间隔 */
+}
+</string>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>96</x>
+            <y>22</y>
+            <width>48</width>
+            <height>48</height>
+           </rect>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="res/res.qrc">:/icon/account.svg</pixmap>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_username">
+          <property name="geometry">
+           <rect>
+            <x>35</x>
+            <y>92</y>
+            <width>170</width>
+            <height>44</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>44</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>170</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>15</number>
+          </property>
+          <property name="placeholderText">
+           <string>username</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="lineEdit_password">
+          <property name="geometry">
+           <rect>
+            <x>35</x>
+            <y>156</y>
+            <width>170</width>
+            <height>44</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>170</width>
+            <height>44</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>170</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="maxLength">
+           <number>15</number>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::EchoMode::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>password</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_login">
+          <property name="geometry">
+           <rect>
+            <x>79</x>
+            <y>220</y>
+            <width>100</width>
+            <height>30</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Login</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pushButton_sign_up">
+          <property name="geometry">
+           <rect>
+            <x>71</x>
+            <y>295</y>
+            <width>98</width>
+            <height>32</height>
+           </rect>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Sign Up</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_2">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>272</y>
+            <width>228</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InteractiveWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">interactiveWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

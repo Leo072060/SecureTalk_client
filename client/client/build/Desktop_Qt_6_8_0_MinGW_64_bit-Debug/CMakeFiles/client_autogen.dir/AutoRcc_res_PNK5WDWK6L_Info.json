@@ -1,0 +1,33 @@
+{
+	"BUILD_DIR" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Files/SecureTalk/client",
+	"CMAKE_SOURCE_DIR" : "C:/Files/SecureTalk/client",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/client_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Files/SecureTalk/client/res/icon/network_check.svg",
+		"C:/Files/SecureTalk/client/res/icon/help.svg",
+		"C:/Files/SecureTalk/client/res/icon/settings.svg",
+		"C:/Files/SecureTalk/client/res/icon/disconnected.svg",
+		"C:/Files/SecureTalk/client/res/icon/contact_support.svg",
+		"C:/Files/SecureTalk/client/res/icon/link_off.svg",
+		"C:/Files/SecureTalk/client/res/icon/link.svg",
+		"C:/Files/SecureTalk/client/res/icon/SecureTalk.png",
+		"C:/Files/SecureTalk/client/res/icon/account.svg"
+	],
+	"LOCK_FILE" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/client_autogen.dir/AutoRcc_res_PNK5WDWK6L_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "res" ],
+	"OUTPUT_CHECKSUM" : "PNK5WDWK6L",
+	"OUTPUT_NAME" : "qrc_res.cpp",
+	"RCC_EXECUTABLE" : "C:/ProgramFiles/Qt/6.8.0/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Files/SecureTalk/client/client/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/client_autogen.dir/AutoRcc_res_PNK5WDWK6L_Used.txt",
+	"SOURCE" : "C:/Files/SecureTalk/client/res/res.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}
